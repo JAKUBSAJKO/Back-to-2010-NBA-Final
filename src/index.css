@@ -28,3 +28,7 @@
     display: block;
   }
 }
+
+.btn-outline {
+  @apply border-2 border-purple-500 px-8 py-2 rounded-md transition-all hover:bg-purple-500 text-sm font-medium hover:text-yellow-300;
+}
