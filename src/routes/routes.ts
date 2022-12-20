@@ -1,3 +1,7 @@
 export const routes = {
-  start: "/",
+  root: "/",
+  info: "/introduce/info",
+  user: "/introduce/user",
+  roles: "/introduce/roles",
+  start: "/introduce/start",
 };
