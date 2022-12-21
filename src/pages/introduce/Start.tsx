@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import { routes } from "../../routes/routes";
+
 export const Start = () => {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
@@ -9,7 +11,7 @@ export const Start = () => {
         kolegów z zespołu oraz swoich fanów.
       </p>
       <p>Jesteś gotowy(-wa)?</p>
-      <Link to="" className="btn-outline mt-4">
+      <Link to={routes.choose} className="btn-outline mt-4">
         Rozpocznij mecz
       </Link>
     </div>

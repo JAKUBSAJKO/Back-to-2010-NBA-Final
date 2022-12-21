@@ -4,4 +4,6 @@ export const routes = {
   user: "/introduce/user",
   roles: "/introduce/roles",
   start: "/introduce/start",
+  choose: "/choose",
+  question: "/question/:id",
 };

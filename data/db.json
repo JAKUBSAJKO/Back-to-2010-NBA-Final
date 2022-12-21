@@ -1,0 +1,32 @@
+{
+  "easy": [
+    {
+      "id": 1,
+      "title": "Pytanie 1",
+      "commentator": "Jakub Sajko z otwartej pozycji!",
+      "foto": "Fotography",
+      "question": {
+        "text": "Ilu zawodników z jednej drużyny może znajdować się podczas meczu na boisku?",
+        "answers": ["5", "6", "8", "11"],
+        "correctAnswer": "5",
+        "goodComment": "Jakub Sajko z otwartej pozycji! Brawo! Łatwe 2 punkty dla drużyny z Los Angeles.",
+        "badComment": "Jakub Sajko z otwartej pozycji! Niestety pudło."
+      }
+    }
+  ],
+  "hard": [
+    {
+      "id": 1,
+      "title": "Pytanie 1",
+      "commentator": "Jakub Sajko z otwartej pozycji!",
+      "foto": "Fotography",
+      "question": {
+        "text": "Ile drużyn znajduję się w NBA?",
+        "answers": ["20", "28", "30", "32"],
+        "correctAnswer": "30",
+        "goodComment": "️Jakub Sajko z otwartej pozycji! Brawo! Łatwe 3 punkty dla drużyny z Los Angeles.",
+        "badComment": "Jakub Sajko z otwartej pozycji! Niestety pudło."
+      }
+    }
+  ]
+}
