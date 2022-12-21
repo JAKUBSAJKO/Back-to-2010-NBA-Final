@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { GiOldMicrophone } from "react-icons/gi";
 import { useParams } from "react-router-dom";
+import { useAppSelector } from "../app/hooks";
+import { RootState } from "../app/store";
 import GameBoard from "../components/GameBoard/GameBoard";
 
 import { ScoreBoard } from "../components/ScoreBoard/ScoreBoard";
@@ -24,9 +26,17 @@ export const Question = () => {
   const [question, setQuestion] = useState<IQuestion>();
   const { id } = useParams();
 
+  const questionDifficulty = useAppSelector(
+    (state: RootState) => state.chooseDifficulty.value
+  );
+
   useEffect(() => {
+    let difficulty = "";
+    if (questionDifficulty === 2) difficulty = "easy";
+    else if (questionDifficulty === 3) difficulty = "hard";
+
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:4000/easy/${id}`);
+      const res = await fetch(`http://localhost:4000/${difficulty}/${id}`);
       const data = await res.json();
       setQuestion(data);
     };
