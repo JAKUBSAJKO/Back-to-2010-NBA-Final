@@ -23,7 +23,9 @@ export const UserForm = () => {
         className="w-64 px-4 py-2 border-2 border-purple-500 rounded-md text-sm"
         required
       />
-      <button className="btn-outline">Dalej</button>
+      <button type="submit" className="btn-outline">
+        Dalej
+      </button>
     </form>
   );
 };
