@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
@@ -11,10 +11,17 @@ import { routes } from "../../routes/routes";
 
 interface Props {
   question: IQuestion | undefined;
+  isAfterPick: boolean;
+  setIsAfterPick: Dispatch<SetStateAction<boolean>>;
+  setIsCorrectAnswer: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function GameBoard({ question }: Props) {
-  const [isAfterPick, setIsAfterPick] = useState(false);
+export default function GameBoard({
+  question,
+  isAfterPick,
+  setIsAfterPick,
+  setIsCorrectAnswer,
+}: Props) {
   const [userChoice, setUserChoice] = useState("");
 
   const navigate = useNavigate();
@@ -31,6 +38,7 @@ export default function GameBoard({ question }: Props) {
   const checkAnswer = () => {
     setIsAfterPick((prev) => !prev);
     if (userChoice === question?.question.correctAnswer) {
+      setIsCorrectAnswer((prev) => !prev);
       if (chooseDifficulty === 2) {
         dispatch(incrementUserPoints(chooseDifficulty));
         dispatch(incrementLakersPoints(chooseDifficulty));

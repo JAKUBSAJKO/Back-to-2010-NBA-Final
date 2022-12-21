@@ -3,14 +3,45 @@
     {
       "id": 1,
       "title": "Pytanie 1",
-      "commentator": "Jakub Sajko z otwartej pozycji!",
+      "commentator": "imię nazwisko z otwartej pozycji!",
       "foto": "Fotography",
       "question": {
         "text": "Ilu zawodników z jednej drużyny może znajdować się podczas meczu na boisku?",
         "answers": ["5", "6", "8", "11"],
         "correctAnswer": "5",
-        "goodComment": "Jakub Sajko z otwartej pozycji! Brawo! Łatwe 2 punkty dla drużyny z Los Angeles.",
-        "badComment": "Jakub Sajko z otwartej pozycji! Niestety pudło."
+        "goodComment": "imię nazwisko z otwartej pozycji! Brawo! Łatwe 2 punkty dla drużyny z Los Angeles.",
+        "badComment": "imię nazwisko z otwartej pozycji! Niestety pudło."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Pytanie 2",
+      "commentator": "Pau Gasol z podkosza podaje do imię nazwisko. nazwisko decyduje się na rzut!",
+      "foto": "Fotography",
+      "question": {
+        "text": "Ile minut trwa jedna kwarta podczas meczu NBA?",
+        "answers": ["6", "8", "10", "12"],
+        "correctAnswer": "12",
+        "goodComment": "Pau Gasol z podkosza podaje do imię nazwisko. nazwisko decyduje się na rzut! Brawo! Dwa punkty wędrują na jego konto.",
+        "badComment": "Pau Gasol z podkosza podaje do imię nazwisko. nazwisko decyduje się na rzut! Niestety imię zostaje zblokowany przez Kevina Garnetta."
+      }
+    },
+    {
+      "id": 3,
+      "title": "Pytanie 3",
+      "commentator": "imię nazwisko odbiera piłkę i biegnie w kierunku kosza.",
+      "foto": "Fotography",
+      "question": {
+        "text": "Jak nazywa się koszykarz ze zdjęcia",
+        "answers": [
+          "Kobe Bryant",
+          "Micheal Jordan",
+          "LeBron James",
+          "Kevin Durant"
+        ],
+        "correctAnswer": "Micheal Jordan",
+        "goodComment": "imię nazwisko odbiera piłkę i biegnie w kierunku kosza. TAAAAAK! 2 punkty dla Lakers.",
+        "badComment": "imię nazwisko odbiera piłkę i biegnie w kierunku kosza. Niestety prosta strata. naziwsko podaje na aut."
       }
     }
   ],
@@ -18,14 +49,45 @@
     {
       "id": 1,
       "title": "Pytanie 1",
-      "commentator": "Jakub Sajko z otwartej pozycji!",
+      "commentator": "imię nazwisko z otwartej pozycji!",
       "foto": "Fotography",
       "question": {
         "text": "Ile drużyn znajduję się w NBA?",
         "answers": ["20", "28", "30", "32"],
         "correctAnswer": "30",
-        "goodComment": "️Jakub Sajko z otwartej pozycji! Brawo! Łatwe 3 punkty dla drużyny z Los Angeles.",
-        "badComment": "Jakub Sajko z otwartej pozycji! Niestety pudło."
+        "goodComment": "️imię nazwisko z otwartej pozycji! Brawo! Łatwe 3 punkty dla drużyny z Los Angeles.",
+        "badComment": "imię nazwisko z otwartej pozycji! Niestety pudło."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Pytanie 2",
+      "commentator": "Pau Gasol z podkosza podaje do imię nazwisko. nazwisko decyduje się na rzut!",
+      "foto": "Fotography",
+      "question": {
+        "text": "Ile sekund ma drużyna na przeprowadzenie akcji?",
+        "answers": ["20", "24", "32", "36"],
+        "correctAnswer": "24",
+        "goodComment": "️Pau Gasol z podkosza podaje do imię nazwisko. nazwisko decyduje się na rzut! Brawo! Trzy punkty wędrują na jego konto.",
+        "badComment": "Pau Gasol z podkosza podaje do imię nazwisko. nazwisko decyduje się na rzut! Niestety imię zostaje zblokowany przez Kevina Garnetta."
+      }
+    },
+    {
+      "id": 3,
+      "title": "Pytanie 3",
+      "commentator": "imię nazwisko odbiera piłkę i biegnie w kierunku kosza.",
+      "foto": "Fotography",
+      "question": {
+        "text": "Jak nazywa się koszykarz ze zdjęcia?",
+        "answers": [
+          "Karl Malone",
+          "John Stockton",
+          "Scottie Pippen",
+          "Denis Rodman"
+        ],
+        "correctAnswer": "Karl Malone",
+        "goodComment": "️imię nazwisko odbiera piłkę i biegnie w kierunku kosza. TAAAAAK! 3 punkty dla Lakers.",
+        "badComment": "imię nazwisko odbiera piłkę i biegnie w kierunku kosza. Niestety prosta strata. nazwisko podaje na aut."
       }
     }
   ]
