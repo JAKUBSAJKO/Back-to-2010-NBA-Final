@@ -1,12 +1,54 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import { setQuestionDifficulty } from "../../features/chooseDifficultySlice";
+import { incrementCurrentQuestion } from "../../features/currentQuestionSlice";
+import { incrementLakersPoints } from "../../features/lakersPoints";
+import { incrementUserPoints } from "../../features/userPointsSlice";
 import { IQuestion } from "../../pages/Question";
+import { routes } from "../../routes/routes";
 
 interface Props {
   question: IQuestion | undefined;
 }
 
 export default function GameBoard({ question }: Props) {
+  const [isAfterPick, setIsAfterPick] = useState(false);
   const [userChoice, setUserChoice] = useState("");
+
+  const navigate = useNavigate();
+
+  const chooseDifficulty = useAppSelector(
+    (state: RootState) => state.chooseDifficulty.value
+  );
+  const currentQuestion = useAppSelector(
+    (state: RootState) => state.currentQuestion.value
+  );
+
+  const dispatch = useAppDispatch();
+
+  const checkAnswer = () => {
+    setIsAfterPick((prev) => !prev);
+    if (userChoice === question?.question.correctAnswer) {
+      if (chooseDifficulty === 2) {
+        dispatch(incrementUserPoints(chooseDifficulty));
+        dispatch(incrementLakersPoints(chooseDifficulty));
+      } else {
+        dispatch(incrementUserPoints(chooseDifficulty));
+        dispatch(incrementLakersPoints(chooseDifficulty));
+      }
+    }
+  };
+
+  const nextQuestion = () => {
+    if (currentQuestion === 10) {
+    } else {
+      dispatch(incrementCurrentQuestion());
+      dispatch(setQuestionDifficulty(0));
+      navigate(routes.choose);
+    }
+  };
 
   return (
     <div className="w-full h-[calc(100vh-160px)] flex justify-center items-center">
@@ -29,7 +71,15 @@ export default function GameBoard({ question }: Props) {
             );
           })}
         </div>
-        <button className="btn-outline">Wybierz</button>
+        {!isAfterPick ? (
+          <button className="btn-outline" onClick={checkAnswer}>
+            Wybierz
+          </button>
+        ) : (
+          <button className="btn-outline" onClick={nextQuestion}>
+            Następne pytanie
+          </button>
+        )}
       </div>
       <div className="bg-yellow-500">{question?.foto}</div>
     </div>

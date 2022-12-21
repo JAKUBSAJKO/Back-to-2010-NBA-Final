@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
 
 const BOSTON_POINTS = 79;
 
 export const ScoreBoard = () => {
-  const [lakersPoints, setLakersPoints] = useState(62);
+  const lakersPoints = useAppSelector(
+    (state: RootState) => state.lakersPoints.value
+  );
   return (
     <div className="w-full h-16 flex">
       <div className="basis-1/2 bg-green-500 flex justify-end items-center">

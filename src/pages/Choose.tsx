@@ -1,14 +1,14 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import { setQuestionDifficulty } from "../features/chooseDifficultySlice";
 
 export const Choose = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(1);
-
   const questionDifficulty = useAppSelector(
     (state: RootState) => state.chooseDifficulty.value
+  );
+  const currentQuestion = useAppSelector(
+    (state: RootState) => state.currentQuestion.value
   );
   const dispatch = useAppDispatch();
 
