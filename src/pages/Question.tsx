@@ -17,12 +17,14 @@ export interface IQuestion {
     text: string;
     answers: string[];
     correctAnswer: string;
-    goodAnswer: string;
+    goodComment: string;
     badComment: string;
   };
 }
 
 export const Question = () => {
+  const [isAfterPick, setIsAfterPick] = useState(false);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
   const [question, setQuestion] = useState<IQuestion>();
   const { id } = useParams();
 
@@ -49,11 +51,22 @@ export const Question = () => {
   return (
     <div className="w-full h-screen flex flex-col">
       <ScoreBoard />
-      <GameBoard question={question} />
+      <GameBoard
+        question={question}
+        isAfterPick={isAfterPick}
+        setIsAfterPick={setIsAfterPick}
+        setIsCorrectAnswer={setIsCorrectAnswer}
+      />
       <div className="w-full h-24 bg-orange-300 flex justify-center items-center gap-4">
         <div className="border-2 border-black rounded-lg px-16 py-6 flex items-center">
           <GiOldMicrophone className="text-2xl mr-2" />
-          <p>{question?.commentator}</p>
+          <p>
+            {!isAfterPick
+              ? question?.commentator
+              : isCorrectAnswer
+              ? question?.question.goodComment
+              : question?.question.badComment}
+          </p>
         </div>
         <UserPoints />
       </div>
