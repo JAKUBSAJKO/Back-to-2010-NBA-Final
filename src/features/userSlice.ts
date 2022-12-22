@@ -4,7 +4,7 @@ interface UserState {
   value: User;
 }
 
-interface User {
+export interface User {
   first: string;
   last: string;
 }

@@ -7,6 +7,7 @@ import GameBoard from "../components/GameBoard/GameBoard";
 
 import { ScoreBoard } from "../components/ScoreBoard/ScoreBoard";
 import { UserPoints } from "../components/UserPoints/UserPoints";
+import { replaceWordsInComments } from "../helpers/replaceWordsInComments";
 
 export interface IQuestion {
   id: number;
@@ -65,10 +66,16 @@ export const Question = () => {
           <GiOldMicrophone className="text-2xl mr-2" />
           <p>
             {!isAfterPick
-              ? question?.commentator
+              ? replaceWordsInComments(question?.commentator || "", user)
               : isCorrectAnswer
-              ? question?.question.goodComment
-              : question?.question.badComment}
+              ? replaceWordsInComments(
+                  question?.question.goodComment || "",
+                  user
+                )
+              : replaceWordsInComments(
+                  question?.question.badComment || "",
+                  user
+                )}
           </p>
         </div>
         <UserPoints />
