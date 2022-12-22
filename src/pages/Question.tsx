@@ -32,6 +32,8 @@ export const Question = () => {
     (state: RootState) => state.chooseDifficulty.value
   );
 
+  const user = useAppSelector((state: RootState) => state.user.value);
+
   useEffect(() => {
     let difficulty = "";
     if (questionDifficulty === 2) difficulty = "easy";
@@ -46,8 +48,6 @@ export const Question = () => {
     fetchData();
   }, []);
 
-  console.log(question);
-
   return (
     <div className="w-full h-screen flex flex-col">
       <ScoreBoard />
@@ -57,6 +57,9 @@ export const Question = () => {
         setIsAfterPick={setIsAfterPick}
         setIsCorrectAnswer={setIsCorrectAnswer}
       />
+      <p>
+        {user.first} {user.last}
+      </p>
       <div className="w-full h-24 bg-orange-300 flex justify-center items-center gap-4">
         <div className="border-2 border-black rounded-lg px-16 py-6 flex items-center">
           <GiOldMicrophone className="text-2xl mr-2" />

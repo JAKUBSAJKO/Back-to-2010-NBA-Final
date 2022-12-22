@@ -3,6 +3,7 @@ import chooseDifficultyReducer from "../features/chooseDifficultySlice";
 import currentQuestionReducer from "../features/currentQuestionSlice";
 import userPointsReducer from "../features/userPointsSlice";
 import lakersPointsReducer from "../features/lakersPoints";
+import userReducer from "../features/userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     currentQuestion: currentQuestionReducer,
     userPoints: userPointsReducer,
     lakersPoints: lakersPointsReducer,
+    user: userReducer,
   },
 });
 
