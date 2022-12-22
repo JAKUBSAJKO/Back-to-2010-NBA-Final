@@ -80,7 +80,10 @@ export default function GameBoard({
           })}
         </div>
         {!isAfterPick ? (
-          <button className="btn-outline" onClick={checkAnswer}>
+          <button
+            className={userChoice === "" ? "invisible" : "visible btn-outline"}
+            onClick={checkAnswer}
+          >
             Wybierz
           </button>
         ) : (
