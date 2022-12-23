@@ -6,4 +6,6 @@ export const routes = {
   start: "/introduce/start",
   choose: "/choose",
   question: "/question/:slug",
+  finish: "/finish",
+  result: "/finish/:result",
 };

@@ -1,9 +1,13 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { setQuestionDifficulty } from "../../features/chooseDifficultySlice";
-import { incrementCurrentQuestion } from "../../features/currentQuestionSlice";
+import {
+  clearCurrentQuestion,
+  incrementCurrentQuestion,
+} from "../../features/currentQuestionSlice";
 import { incrementLakersPoints } from "../../features/lakersPoints";
 import { incrementUserPoints } from "../../features/userPointsSlice";
 import { IResponse } from "../../hooks/useQuestion";
@@ -49,11 +53,13 @@ export default function GameBoard({
     }
   };
 
-  const nextQuestion = () => {
+  const nextQuestionOrLastQuestion = () => {
+    dispatch(setQuestionDifficulty(0));
     if (currentQuestion === 10) {
+      clearCurrentQuestion();
+      navigate(routes.finish);
     } else {
       dispatch(incrementCurrentQuestion());
-      dispatch(setQuestionDifficulty(0));
       navigate(routes.choose);
     }
   };
@@ -92,8 +98,15 @@ export default function GameBoard({
           >
             Wybierz
           </button>
+        ) : currentQuestion === 10 ? (
+          <button
+            className={userChoice === "" ? "invisible" : "visible btn-outline"}
+            onClick={nextQuestionOrLastQuestion}
+          >
+            Zakończ mecz
+          </button>
         ) : (
-          <button className="btn-outline" onClick={nextQuestion}>
+          <button className="btn-outline" onClick={nextQuestionOrLastQuestion}>
             Następne pytanie
           </button>
         )}

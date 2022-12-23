@@ -8,6 +8,8 @@ import { Start } from "./pages/introduce/Start";
 import { routes } from "./routes/routes";
 import { Choose } from "./pages/Choose";
 import { Question } from "./pages/Question";
+import Finish from "./pages/Finish";
+import Result from "./pages/finish/Result";
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
           <Route path={routes.start} element={<Start />} />
           <Route path={routes.choose} element={<Choose />} />
           <Route path={routes.question} element={<Question />} />
+          <Route path={routes.finish} element={<Finish />} />
+          <Route path={routes.result} element={<Result />} />
         </Routes>
       </div>
     </Router>
