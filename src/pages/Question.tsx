@@ -1,59 +1,32 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GiOldMicrophone } from "react-icons/gi";
 import { useParams } from "react-router-dom";
+
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import GameBoard from "../components/GameBoard/GameBoard";
-
 import { ScoreBoard } from "../components/ScoreBoard/ScoreBoard";
 import { UserPoints } from "../components/UserPoints/UserPoints";
 import { replaceWordsInComments } from "../helpers/replaceWordsInComments";
-
-export interface IQuestion {
-  id: number;
-  title: string;
-  commentator: string;
-  foto: string;
-  question: {
-    text: string;
-    answers: string[];
-    correctAnswer: string;
-    goodComment: string;
-    badComment: string;
-  };
-}
+import { useQuestion } from "../hooks/useQuestion";
 
 export const Question = () => {
   const [isAfterPick, setIsAfterPick] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
-  const [question, setQuestion] = useState<IQuestion>();
-  const { id } = useParams();
+  const { slug } = useParams();
 
-  const questionDifficulty = useAppSelector(
-    (state: RootState) => state.chooseDifficulty.value
-  );
+  const { data, loading, error } = useQuestion(slug || "");
 
   const user = useAppSelector((state: RootState) => state.user.value);
 
-  useEffect(() => {
-    let difficulty = "";
-    if (questionDifficulty === 2) difficulty = "easy";
-    else if (questionDifficulty === 3) difficulty = "hard";
-
-    const fetchData = async () => {
-      const res = await fetch(`http://localhost:4000/${difficulty}/${id}`);
-      const data = await res.json();
-      setQuestion(data);
-    };
-
-    fetchData();
-  }, []);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error...</div>;
 
   return (
     <div className="w-full h-screen flex flex-col">
       <ScoreBoard />
       <GameBoard
-        question={question}
+        data={data}
         isAfterPick={isAfterPick}
         setIsAfterPick={setIsAfterPick}
         setIsCorrectAnswer={setIsCorrectAnswer}
@@ -66,14 +39,17 @@ export const Question = () => {
           <GiOldMicrophone className="text-2xl mr-2" />
           <p>
             {!isAfterPick
-              ? replaceWordsInComments(question?.commentator || "", user)
+              ? replaceWordsInComments(
+                  data?.allQuestions[0].initialcomment || "",
+                  user
+                )
               : isCorrectAnswer
               ? replaceWordsInComments(
-                  question?.question.goodComment || "",
+                  data?.allQuestions[0].goodcomment || "",
                   user
                 )
               : replaceWordsInComments(
-                  question?.question.badComment || "",
+                  data?.allQuestions[0].badcomment || "",
                   user
                 )}
           </p>

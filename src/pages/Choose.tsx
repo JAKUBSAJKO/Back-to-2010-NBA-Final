@@ -32,7 +32,14 @@ export const Choose = () => {
           3 punkty
         </button>
       </div>
-      <Link to={`/question/${currentQuestion}`} className="btn-outline">
+      <Link
+        to={
+          questionDifficulty === 2
+            ? `/question/pytanie-easy-${currentQuestion}`
+            : `/question/pytanie-hard-${currentQuestion}`
+        }
+        className="btn-outline"
+      >
         Wybierz
       </Link>
     </div>

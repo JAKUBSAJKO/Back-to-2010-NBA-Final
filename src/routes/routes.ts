@@ -5,5 +5,5 @@ export const routes = {
   roles: "/introduce/roles",
   start: "/introduce/start",
   choose: "/choose",
-  question: "/question/:id",
+  question: "/question/:slug",
 };
