@@ -15,8 +15,12 @@ export const currentQuestionSlice = createSlice({
     incrementCurrentQuestion: (state) => {
       state.value += 1;
     },
+    clearCurrentQuestion: (state) => {
+      state.value = 0;
+    },
   },
 });
 
-export const { incrementCurrentQuestion } = currentQuestionSlice.actions;
+export const { incrementCurrentQuestion, clearCurrentQuestion } =
+  currentQuestionSlice.actions;
 export default currentQuestionSlice.reducer;
