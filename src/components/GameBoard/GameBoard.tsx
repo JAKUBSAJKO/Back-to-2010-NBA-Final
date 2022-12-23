@@ -6,18 +6,18 @@ import { setQuestionDifficulty } from "../../features/chooseDifficultySlice";
 import { incrementCurrentQuestion } from "../../features/currentQuestionSlice";
 import { incrementLakersPoints } from "../../features/lakersPoints";
 import { incrementUserPoints } from "../../features/userPointsSlice";
-import { IQuestion } from "../../pages/Question";
+import { IResponse } from "../../hooks/useQuestion";
 import { routes } from "../../routes/routes";
 
 interface Props {
-  question: IQuestion | undefined;
+  data: IResponse | undefined;
   isAfterPick: boolean;
   setIsAfterPick: Dispatch<SetStateAction<boolean>>;
   setIsCorrectAnswer: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function GameBoard({
-  question,
+  data,
   isAfterPick,
   setIsAfterPick,
   setIsCorrectAnswer,
@@ -37,7 +37,7 @@ export default function GameBoard({
 
   const checkAnswer = () => {
     setIsAfterPick((prev) => !prev);
-    if (userChoice === question?.question.correctAnswer) {
+    if (userChoice === data?.allQuestions[0].correctanswer) {
       setIsCorrectAnswer((prev) => !prev);
       if (chooseDifficulty === 2) {
         dispatch(incrementUserPoints(chooseDifficulty));
@@ -60,12 +60,18 @@ export default function GameBoard({
 
   return (
     <div className="w-full h-[calc(100vh-160px)] flex justify-center items-center">
-      <div className="bg-blue-500">{question?.foto}</div>
+      <div className="bg-blue-500">
+        {data?.allQuestions[0].image !== null ? (
+          <img src={data?.allQuestions[0].image.url || ""} alt="" />
+        ) : (
+          ""
+        )}
+      </div>
       <div className="w-[512px] bg-green-500 flex flex-col justify-center items-center gap-4">
-        <h1>{question?.title}</h1>
-        <p className="text-center">{question?.question.text}</p>
+        <h1>{data?.allQuestions[0].title}</h1>
+        <p className="text-center">{data?.allQuestions[0].question}</p>
         <div className="grid grid-cols-2 gap-4">
-          {question?.question.answers.map((answer: string) => {
+          {data?.allQuestions[0].answers.map((answer: string) => {
             return (
               <button
                 key={answer}
@@ -92,7 +98,13 @@ export default function GameBoard({
           </button>
         )}
       </div>
-      <div className="bg-yellow-500">{question?.foto}</div>
+      <div className="bg-yellow-500">
+        {data?.allQuestions[0].image !== null ? (
+          <img src={data?.allQuestions[0].image.url || ""} alt="" />
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }
