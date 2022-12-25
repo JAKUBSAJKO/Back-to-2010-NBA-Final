@@ -7,5 +7,6 @@ export const routes = {
   choose: "/choose",
   question: "/question/:slug",
   finish: "/finish",
-  result: "/finish/:result",
+  win: "/finish/win",
+  failure: "/finish/failure",
 };

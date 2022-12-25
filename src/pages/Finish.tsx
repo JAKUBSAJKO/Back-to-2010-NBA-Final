@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
+import { routes } from "../routes/routes";
 
 export default function Finish() {
   const userPoints = useAppSelector(
@@ -23,7 +24,7 @@ export default function Finish() {
         {userPoints > 18 ? win : userPoints === 18 ? draw : failure}
       </p>
       <Link
-        to={userPoints > 18 ? `/finish/win` : `/finish/failure`}
+        to={userPoints > 18 ? routes.win : routes.failure}
         className="btn-outline"
       >
         Dalej

@@ -9,7 +9,8 @@ import { routes } from "./routes/routes";
 import { Choose } from "./pages/Choose";
 import { Question } from "./pages/Question";
 import Finish from "./pages/Finish";
-import Result from "./pages/finish/Result";
+import Win from "./pages/finish/Win";
+import Failure from "./pages/finish/Failure";
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
           <Route path={routes.choose} element={<Choose />} />
           <Route path={routes.question} element={<Question />} />
           <Route path={routes.finish} element={<Finish />} />
-          <Route path={routes.result} element={<Result />} />
+          <Route path={routes.win} element={<Win />} />
+          <Route path={routes.failure} element={<Failure />} />
         </Routes>
       </div>
     </Router>
