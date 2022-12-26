@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Introduction from "./pages/Introduction";
-import { Info } from "./pages/introduce/Info";
-import { User } from "./pages/introduce/User";
-import { Roles } from "./pages/introduce/Roles";
-import { Start } from "./pages/introduce/Start";
 import { routes } from "./routes/routes";
-import { Choose } from "./pages/Choose";
-import { Question } from "./pages/Question";
+import Introduction from "./pages/Introduction";
+import Info from "./pages/introduce/Info";
+import User from "./pages/introduce/User";
+import Roles from "./pages/introduce/Roles";
+import Start from "./pages/introduce/Start";
+import Choose from "./pages/Choose";
 import Finish from "./pages/Finish";
 import Win from "./pages/finish/Win";
 import Failure from "./pages/finish/Failure";
+import Question from "./pages/Question";
 
 const App = () => {
   return (

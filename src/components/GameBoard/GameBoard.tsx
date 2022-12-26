@@ -20,7 +20,7 @@ interface Props {
   setIsCorrectAnswer: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function GameBoard({
+export function GameBoard({
   data,
   isAfterPick,
   setIsAfterPick,

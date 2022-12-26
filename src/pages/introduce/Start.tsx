@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { routes } from "../../routes/routes";
 
-export const Start = () => {
+export default function Start() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
       <p className="max-w-xl">
@@ -16,4 +16,4 @@ export const Start = () => {
       </Link>
     </div>
   );
-};
+}

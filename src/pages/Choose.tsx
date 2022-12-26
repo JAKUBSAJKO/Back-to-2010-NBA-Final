@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import { setQuestionDifficulty } from "../features/chooseDifficultySlice";
 
-export const Choose = () => {
+export default function Choose() {
   const questionDifficulty = useAppSelector(
     (state: RootState) => state.chooseDifficulty.value
   );
@@ -44,4 +44,4 @@ export const Choose = () => {
       </Link>
     </div>
   );
-};
+}
