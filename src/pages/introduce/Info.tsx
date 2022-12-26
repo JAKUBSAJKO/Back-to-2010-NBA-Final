@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { routes } from "../../routes/routes";
 
-export const Info = () => {
+export default function Info() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
       <p className="max-w-xl border-2 border-purple-500 rounded-md p-8">
@@ -20,4 +20,4 @@ export const Info = () => {
       </Link>
     </div>
   );
-};
+}

@@ -3,28 +3,22 @@ import { GiOldMicrophone } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 import { routes } from "../../routes/routes";
+import { useRole } from "../../hooks/useRole";
 
-const rules = [
-  { text: "Quiz składa się z 10 pytań." },
-  {
-    text: "Przed każdym pytaniem decydujesz na jakie pytanie chcesz odpowiedzieć.",
-  },
-  { text: "Pytanie łatwe = 2 punkty." },
-  { text: "Pytanie trudne = 3 punkty." },
-  { text: "Zła odpowiedź = nie zdobywasz punktu." },
-  { text: "Aby wygrać mecz potrzebujesz zdobyć 18 punktów." },
-  { text: "Remis oznacza porażkę, więc musisz zdobyć 18 punktów." },
-];
+export default function Roles() {
+  const { data, loading, error } = useRole();
 
-export const Roles = () => {
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error...</div>;
+
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
       <div className="max-w-2xl mx-auto flex flex-col justify-center gap-4">
         <h1 className="text-2xl font-normal self-center">Zasady Gry</h1>
         <div className="flex flex-col gap-1">
-          {rules.map((rule) => {
+          {data?.allRules.map((rule) => {
             return (
-              <div key={rule.text} className="flex items-center">
+              <div key={rule.id} className="flex items-center">
                 <BsFillArrowRightSquareFill className="text-purple-700 text-xl mr-2" />
                 <p>{rule.text}</p>
               </div>
@@ -41,4 +35,4 @@ export const Roles = () => {
       </Link>
     </div>
   );
-};
+}
