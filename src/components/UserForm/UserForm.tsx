@@ -1,45 +1,65 @@
-import { useRef } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 import { useAppDispatch } from "../../app/hooks";
 import { addUser } from "../../features/userSlice";
+import { User } from "../../features/userSlice";
 
 export const UserForm = () => {
-  const first = useRef<HTMLInputElement>(null);
-  const last = useRef<HTMLInputElement>(null);
+  const schema = yup.object().shape({
+    first: yup
+      .string()
+      .required("Imię jest wymagane!")
+      .matches(
+        /^[aA-zZ\s]+$/,
+        "Imię nie może zawierać cyfr i znaków specjalnych"
+      ),
+    last: yup
+      .string()
+      .required("Nazwisko jest wymagane!")
+      .matches(
+        /^[aA-zZ\s]+$/,
+        "Nazwisko nie może zawierać cyfr i znaków specjalnych"
+      ),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<User>({
+    resolver: yupResolver(schema),
+  });
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
 
-  const handleSubmit = () => {
-    console.log(first.current?.value);
-    console.log(last.current?.value);
-    dispatch(
-      addUser({ first: first.current?.value!, last: last.current?.value! })
-    );
+  const onSubmit: SubmitHandler<User> = (data) => {
+    dispatch(addUser({ first: data.first, last: data.last }));
     navigate("/introduce/roles");
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="max-w-xl flex flex-col justify-center items-center gap-4"
     >
       <input
-        ref={first}
         type="text"
-        name="first"
         placeholder="Podaj imię..."
         className="w-64 px-4 py-2 border-2 border-purple-500 rounded-md text-sm"
-        required
+        {...register("first")}
       />
       <input
-        ref={last}
         type="text"
-        name="last"
         placeholder="Podaj nazwisko..."
         className="w-64 px-4 py-2 border-2 border-purple-500 rounded-md text-sm"
-        required
+        {...register("last")}
       />
+      <p>{errors.first?.message}</p>
+      <p>{errors.last?.message}</p>
       <button type="submit" className="btn-outline mt-1">
         Dalej
       </button>
