@@ -58,8 +58,10 @@ export const UserForm = () => {
         className="w-64 px-4 py-2 border-2 border-purple-500 rounded-md text-sm"
         {...register("last")}
       />
-      <p>{errors.first?.message}</p>
-      <p>{errors.last?.message}</p>
+      <div>
+        <p>{errors.first?.message}</p>
+        <p>{errors.last?.message}</p>
+      </div>
       <button type="submit" className="btn-outline mt-1">
         Dalej
       </button>
