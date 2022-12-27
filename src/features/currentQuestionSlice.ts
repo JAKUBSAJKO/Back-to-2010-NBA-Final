@@ -16,7 +16,7 @@ export const currentQuestionSlice = createSlice({
       state.value += 1;
     },
     clearCurrentQuestion: (state) => {
-      state.value = 0;
+      state.value = initialState.value;
     },
   },
 });

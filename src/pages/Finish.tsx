@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../app/hooks";
+
+import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { RootState } from "../app/store";
+import { clearCurrentQuestion } from "../features/currentQuestionSlice";
+import { clearLakersPoints } from "../features/lakersPoints";
+import { clearUserPoints } from "../features/userPointsSlice";
+import { removeUser } from "../features/userSlice";
 import { routes } from "../routes/routes";
 
 export default function Finish() {
@@ -18,6 +23,15 @@ export default function Finish() {
 
   const failure = `Niestety! Los Angeles Lakers przegrywają finał z Boston Celtics ${lakersPoints} - 79. Wspaniale jak zawsze zagrał Koby Bryant, który zdobył 24 punkty, ale to nie wystarczyło, aby pokonać drużynę z Bostonu. Może brakowało dziś Metta World Peace'a, który doznał kontuzji na rozgrzewce. ${user.first} ${user.last} miał(-a) wiele okazji w tym meczu, aby godnie zastąpić Metta World Peace'a, lecz niestety zdobył(-a) tylko ${userPoints} punktów.`;
 
+  const dispatch = useAppDispatch();
+
+  const clearStates = () => {
+    dispatch(clearCurrentQuestion());
+    dispatch(clearUserPoints());
+    dispatch(clearLakersPoints());
+    dispatch(removeUser());
+  };
+
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
       <p className="max-w-xl border-2 border-purple-500 rounded-md p-8">
@@ -26,6 +40,7 @@ export default function Finish() {
       <Link
         to={userPoints > 17 ? routes.win : routes.failure}
         className="btn-outline"
+        onClick={clearStates}
       >
         Dalej
       </Link>

@@ -15,8 +15,12 @@ export const lakersPointsSlice = createSlice({
     incrementLakersPoints: (state, action: PayloadAction<number>) => {
       state.value = state.value + action.payload;
     },
+    clearLakersPoints: (state) => {
+      state.value = initialState.value;
+    },
   },
 });
 
-export const { incrementLakersPoints } = lakersPointsSlice.actions;
+export const { incrementLakersPoints, clearLakersPoints } =
+  lakersPointsSlice.actions;
 export default lakersPointsSlice.reducer;
