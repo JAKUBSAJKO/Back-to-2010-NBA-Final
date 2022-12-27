@@ -21,10 +21,10 @@ export default function Finish() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
       <p className="max-w-xl border-2 border-purple-500 rounded-md p-8">
-        {userPoints > 18 ? win : userPoints === 18 ? draw : failure}
+        {userPoints > 17 ? win : userPoints === 16 ? draw : failure}
       </p>
       <Link
-        to={userPoints > 18 ? routes.win : routes.failure}
+        to={userPoints > 17 ? routes.win : routes.failure}
         className="btn-outline"
       >
         Dalej

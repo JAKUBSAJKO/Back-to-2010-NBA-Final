@@ -5,7 +5,7 @@ interface LakersPointsState {
 }
 
 const initialState: LakersPointsState = {
-  value: 62,
+  value: 63,
 };
 
 export const lakersPointsSlice = createSlice({
