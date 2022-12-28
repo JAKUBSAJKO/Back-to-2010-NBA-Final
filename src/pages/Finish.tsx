@@ -5,7 +5,6 @@ import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { RootState } from "../app/store";
 import { clearCurrentQuestion } from "../features/currentQuestionSlice";
 import { clearLakersPoints } from "../features/lakersPoints";
-import { removeUserExistToken } from "../features/userExistSlice";
 import { clearUserPoints } from "../features/userPointsSlice";
 import { removeUser } from "../features/userSlice";
 import { routes } from "../routes/routes";

@@ -7,7 +7,7 @@ import { Spinner } from "./components/Spinner/Spinner";
 const Introduction = lazy(() => import("./pages/Introduction"));
 const Info = lazy(() => import("./pages/introduce/Info"));
 const User = lazy(() => import("./pages/introduce/User"));
-const Roles = lazy(() => import("./pages/introduce/Roles"));
+const Rules = lazy(() => import("./pages/introduce/Rules"));
 const Start = lazy(() => import("./pages/introduce/Start"));
 const Choose = lazy(() => import("./pages/Choose"));
 const Question = lazy(() => import("./pages/Question"));
@@ -24,7 +24,7 @@ const App = () => {
             <Route index element={<Introduction />} />
             <Route path={routes.info} element={<Info />} />
             <Route path={routes.user} element={<User />} />
-            <Route path={routes.roles} element={<Roles />} />
+            <Route path={routes.rules} element={<Rules />} />
             <Route path={routes.start} element={<Start />} />
             <Route path={routes.choose} element={<Choose />} />
             <Route path={routes.question} element={<Question />} />
