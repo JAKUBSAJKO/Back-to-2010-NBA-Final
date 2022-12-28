@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 import { routes } from "../../routes/routes";
 import { useRole } from "../../hooks/useRole";
+import { Spinner } from "../../components/Spinner/Spinner";
 
 export default function Roles() {
   const { data, loading, error } = useRole();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
   if (error) return <div>Error...</div>;
 
   return (
