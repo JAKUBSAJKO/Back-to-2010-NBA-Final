@@ -51,8 +51,8 @@ export default function Choose() {
           <Link
             to={
               questionDifficulty === 2
-                ? `/question/pytanie-easy-${currentQuestion}`
-                : `/question/pytanie-hard-${currentQuestion}`
+                ? `${routes.easy}${currentQuestion}`
+                : `${routes.easy}${currentQuestion}`
             }
             className="btn-outline"
           >
