@@ -22,10 +22,17 @@ export default function Question() {
     (state: RootState) => state.userExistToken.value
   );
 
+  const currentQuestion = useAppSelector(
+    (state: RootState) => state.currentQuestion.value
+  );
+
   useEffect(() => {
     if (!userExist) {
       navigate(routes.user);
       alert("Musisz podać imię i nazwisko zanim dojdzie do rozgrywki");
+    } else if (slug?.slice(-1) !== currentQuestion.toString()) {
+      navigate(routes.choose);
+      alert("Nie możesz ręcznie wpisywać ścieżki do pytania!");
     }
   }, []);
 
