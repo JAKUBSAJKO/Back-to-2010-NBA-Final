@@ -1,20 +1,27 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { RootState } from "../app/store";
 import { clearCurrentQuestion } from "../features/currentQuestionSlice";
 import { clearLakersPoints } from "../features/lakersPoints";
+import { removeUserExistToken } from "../features/userExistSlice";
 import { clearUserPoints } from "../features/userPointsSlice";
 import { removeUser } from "../features/userSlice";
 import { routes } from "../routes/routes";
 
 export default function Finish() {
+  const navigate = useNavigate();
   const userPoints = useAppSelector(
     (state: RootState) => state.userPoints.value
   );
   const lakersPoints = useAppSelector(
     (state: RootState) => state.lakersPoints.value
   );
+  const userExist = useAppSelector(
+    (state: RootState) => state.userExistToken.value
+  );
+
   const user = useAppSelector((state: RootState) => state.user.value);
 
   const win = `TAAAAAAAAAAAAK! Mecz kończy się wynikiem ${lakersPoints} - 79 dla Lakers. Los Angeles Lakers wygrywają swój 16 tytuł mistrzowski. Wspaniale jak zawsze zagrał Koby Bryant, który zdobył 24 punkty. Wspaniale również zagrał dziś rezerwowy(-wa) drużyny Lakers ${user.first} ${user.last}, który(-a) godnie zastąpił(-a) kontuzjowanego Metta World Peac'a zrzutając drużynie z Bostonu ${userPoints} punktów.`;
@@ -32,18 +39,29 @@ export default function Finish() {
     dispatch(removeUser());
   };
 
+  useEffect(() => {
+    if (!userExist) {
+      navigate(routes.user);
+      alert("Musisz podać imię i nazwisko zanim dojdzie do rozgrywki");
+    }
+  }, []);
+
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
-      <p className="max-w-xl border-2 border-purple-500 rounded-md p-8">
-        {userPoints > 17 ? win : userPoints === 16 ? draw : failure}
-      </p>
-      <Link
-        to={userPoints > 17 ? routes.win : routes.failure}
-        className="btn-outline"
-        onClick={clearStates}
-      >
-        Dalej
-      </Link>
+      {userExist ? (
+        <>
+          <p className="max-w-xl border-2 border-purple-500 rounded-md p-8">
+            {userPoints > 17 ? win : userPoints === 16 ? draw : failure}
+          </p>
+          <Link
+            to={userPoints > 17 ? routes.win : routes.failure}
+            className="btn-outline"
+            onClick={clearStates}
+          >
+            Dalej
+          </Link>
+        </>
+      ) : null}
     </div>
   );
 }
