@@ -1,33 +1,38 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { routes } from "./routes/routes";
-import Introduction from "./pages/Introduction";
-import Info from "./pages/introduce/Info";
-import User from "./pages/introduce/User";
-import Roles from "./pages/introduce/Roles";
-import Start from "./pages/introduce/Start";
-import Choose from "./pages/Choose";
-import Finish from "./pages/Finish";
-import Win from "./pages/finish/Win";
-import Failure from "./pages/finish/Failure";
-import Question from "./pages/Question";
+import { Spinner } from "./components/Spinner/Spinner";
+
+const Introduction = lazy(() => import("./pages/Introduction"));
+const Info = lazy(() => import("./pages/introduce/Info"));
+const User = lazy(() => import("./pages/introduce/User"));
+const Roles = lazy(() => import("./pages/introduce/Roles"));
+const Start = lazy(() => import("./pages/introduce/Start"));
+const Choose = lazy(() => import("./pages/Choose"));
+const Question = lazy(() => import("./pages/Question"));
+const Finish = lazy(() => import("./pages/Finish"));
+const Win = lazy(() => import("./pages/finish/Win"));
+const Failure = lazy(() => import("./pages/finish/Failure"));
 
 const App = () => {
   return (
     <Router>
       <div>
-        <Routes>
-          <Route index element={<Introduction />} />
-          <Route path={routes.info} element={<Info />} />
-          <Route path={routes.user} element={<User />} />
-          <Route path={routes.roles} element={<Roles />} />
-          <Route path={routes.start} element={<Start />} />
-          <Route path={routes.choose} element={<Choose />} />
-          <Route path={routes.question} element={<Question />} />
-          <Route path={routes.finish} element={<Finish />} />
-          <Route path={routes.win} element={<Win />} />
-          <Route path={routes.failure} element={<Failure />} />
-        </Routes>
+        <Suspense fallback={<Spinner />}>
+          <Routes>
+            <Route index element={<Introduction />} />
+            <Route path={routes.info} element={<Info />} />
+            <Route path={routes.user} element={<User />} />
+            <Route path={routes.roles} element={<Roles />} />
+            <Route path={routes.start} element={<Start />} />
+            <Route path={routes.choose} element={<Choose />} />
+            <Route path={routes.question} element={<Question />} />
+            <Route path={routes.finish} element={<Finish />} />
+            <Route path={routes.win} element={<Win />} />
+            <Route path={routes.failure} element={<Failure />} />
+          </Routes>
+        </Suspense>
       </div>
     </Router>
   );

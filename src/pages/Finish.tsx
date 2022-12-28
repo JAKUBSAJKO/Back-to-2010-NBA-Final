@@ -17,7 +17,7 @@ export default function Finish() {
   );
   const user = useAppSelector((state: RootState) => state.user.value);
 
-  const win = `TAAAAAAAAAAAAK! Mecz kończy się wynikiem ${lakersPoints} - 79 dla Lakers. Los Angeles Lakers wygrywają swój 16 tytuł mistrzowski. Wspaniale jak zawsze zagrał Koby Bryant, który zdobył 24 punkty. Wspaniale również zagrał dziś rezerwowy(-wa) drużyzy Lakers ${user.first} ${user.last}, który(-a) godnie zastąpił(-a) kontuzjowanego Metta World Peac'a zrzutając drużynie z Bostonu ${userPoints} punktów.`;
+  const win = `TAAAAAAAAAAAAK! Mecz kończy się wynikiem ${lakersPoints} - 79 dla Lakers. Los Angeles Lakers wygrywają swój 16 tytuł mistrzowski. Wspaniale jak zawsze zagrał Koby Bryant, który zdobył 24 punkty. Wspaniale również zagrał dziś rezerwowy(-wa) drużyny Lakers ${user.first} ${user.last}, który(-a) godnie zastąpił(-a) kontuzjowanego Metta World Peac'a zrzutając drużynie z Bostonu ${userPoints} punktów.`;
 
   const draw = `Niestety! Los Angeles Lakers przegrywają finał z Boston Celtics ${lakersPoints} - 81. W ostatniej akcji meczu zawodnik(-a) ${user.first} ${user.last} faulował Rajona Rondo przy rzucie, a ten następnie zamienił 2 rzuty wolne na punkty. Wspaniale jak zawsze zagrał Koby Bryant, który zdobył 24 punkty, ale to nie wystarczyło, aby pokonać drużynę z Bostonu. Może brakowało dziś Metta World Peace'a, który doznał kontuzji na rozgrzewce. ${user.first} ${user.last} miał(-a) wiele okazji w tym meczu, aby godnie zastąpić Metta World Peace'a, lecz niestety zdobył(-a) tylko ${userPoints} punktów.`;
 

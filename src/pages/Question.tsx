@@ -4,6 +4,7 @@ import { CommentsBoard } from "../components/CommentsBoard/CommentsBoard";
 
 import { GameBoard } from "../components/GameBoard/GameBoard";
 import { ScoreBoard } from "../components/ScoreBoard/ScoreBoard";
+import { Spinner } from "../components/Spinner/Spinner";
 import { useQuestion } from "../hooks/useQuestion";
 
 export default function Question() {
@@ -13,7 +14,7 @@ export default function Question() {
 
   const { data, loading, error } = useQuestion(slug || "");
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner />;
   if (error) return <div>Error...</div>;
 
   return (
