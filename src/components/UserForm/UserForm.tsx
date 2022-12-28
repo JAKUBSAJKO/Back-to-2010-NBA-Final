@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppDispatch } from "../../app/hooks";
 import { addUser } from "../../features/userSlice";
 import { User } from "../../features/userSlice";
+import { createUserExistToken } from "../../features/userExistSlice";
 
 export const UserForm = () => {
   const schema = yup.object().shape({
@@ -38,6 +39,7 @@ export const UserForm = () => {
 
   const onSubmit: SubmitHandler<User> = (data) => {
     dispatch(addUser({ first: data.first, last: data.last }));
+    dispatch(createUserExistToken());
     navigate("/introduce/roles");
   };
 

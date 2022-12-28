@@ -4,6 +4,7 @@ import currentQuestionReducer from "../features/currentQuestionSlice";
 import userPointsReducer from "../features/userPointsSlice";
 import lakersPointsReducer from "../features/lakersPoints";
 import userReducer from "../features/userSlice";
+import userExistReducer from "../features/userExistSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     userPoints: userPointsReducer,
     lakersPoints: lakersPointsReducer,
     user: userReducer,
+    userExistToken: userExistReducer,
   },
 });
 
