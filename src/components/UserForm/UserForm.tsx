@@ -9,22 +9,18 @@ import { User } from "../../features/userSlice";
 import { createUserExistToken } from "../../features/userExistSlice";
 import { routes } from "../../routes/routes";
 
+const MATCHES = /^[\s\p{L}]+$/u;
+
 export const UserForm = () => {
   const schema = yup.object().shape({
     first: yup
       .string()
       .required("Imię jest wymagane!")
-      .matches(
-        /^[aA-zZ\s]+$/,
-        "Imię nie może zawierać cyfr i znaków specjalnych"
-      ),
+      .matches(MATCHES, "Imię nie może zawierać cyfr i znaków specjalnych"),
     last: yup
       .string()
       .required("Nazwisko jest wymagane!")
-      .matches(
-        /^[aA-zZ\s]+$/,
-        "Nazwisko nie może zawierać cyfr i znaków specjalnych"
-      ),
+      .matches(MATCHES, "Nazwisko nie może zawierać cyfr i znaków specjalnych"),
   });
 
   const {
