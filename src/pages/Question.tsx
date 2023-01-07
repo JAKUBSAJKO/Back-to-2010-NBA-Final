@@ -30,13 +30,23 @@ export default function Question() {
     if (!userExist) {
       navigate(routes.user);
       alert("Musisz podać imię i nazwisko zanim dojdzie do rozgrywki");
+    } else if (currentQuestion === 10) {
+      if (slug?.slice(-2) !== currentQuestion.toString()) {
+        navigate(routes.choose);
+        alert("Nie możesz ręcznie wpisywać ścieżki do pytania!");
+      }
     } else if (slug?.slice(-1) !== currentQuestion.toString()) {
       navigate(routes.choose);
       alert("Nie możesz ręcznie wpisywać ścieżki do pytania!");
     }
   }, []);
 
-  if (loading) return <Spinner />;
+  if (currentQuestion === 10) {
+    if (slug?.slice(-2) !== currentQuestion.toString()) {
+      navigate(routes.choose);
+      alert("Nie możesz ręcznie wpisywać ścieżki do pytania!");
+    }
+  } else if (loading) return <Spinner />;
   if (error) return <div>Error...</div>;
 
   return (
