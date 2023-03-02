@@ -16,27 +16,29 @@ export function CommentsBoard({ data, isAfterPick, isCorrectAnswer }: Props) {
   const user = useAppSelector((state: RootState) => state.user.value);
 
   return (
-    <div className="w-full h-24 bg-mango flex justify-center items-center gap-4">
-      <div className="border-2 border-black rounded-lg px-16 py-6 flex items-center">
-        <GiOldMicrophone className="text-2xl mr-2" />
-        <p>
-          {!isAfterPick
-            ? replaceWordsInComments(
-                data?.allQuestions[0].initialcomment || "",
-                user
-              )
-            : isCorrectAnswer
-            ? replaceWordsInComments(
-                data?.allQuestions[0].goodcomment || "",
-                user
-              )
-            : replaceWordsInComments(
-                data?.allQuestions[0].badcomment || "",
-                user
-              )}
-        </p>
+    <div className="w-full h-16 bg-gray-300 flex justify-center items-center gap-4">
+      <div className="w-full h-full mx-52 flex items-center gap-4">
+        <div className="text-sm w-4/5 flex items-center">
+          <GiOldMicrophone className="text-2xl mr-2" />
+          <p>
+            {!isAfterPick
+              ? replaceWordsInComments(
+                  data?.allQuestions[0].initialcomment || "",
+                  user
+                )
+              : isCorrectAnswer
+              ? replaceWordsInComments(
+                  data?.allQuestions[0].goodcomment || "",
+                  user
+                )
+              : replaceWordsInComments(
+                  data?.allQuestions[0].badcomment || "",
+                  user
+                )}
+          </p>
+        </div>
+        <UserPoints />
       </div>
-      <UserPoints />
     </div>
   );
 }

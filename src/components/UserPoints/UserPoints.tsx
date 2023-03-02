@@ -6,8 +6,8 @@ export const UserPoints = () => {
     (state: RootState) => state.userPoints.value
   );
   return (
-    <div className="border-2 border-black rounded-md p-4 flex flex-col justify-center items-center">
-      <p className="text-xs">Zdobyte punkty</p>
+    <div className="flex flex-col justify-center items-center">
+      <p className="text-xs text-center">Zdobyte punkty</p>
       <p className="font-semibold">{userPoints}</p>
     </div>
   );
