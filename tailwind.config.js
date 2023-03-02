@@ -13,7 +13,6 @@ module.exports = {
         "celtics-green": "#007A33",
         "gold-result": "#BA9653",
         "error-form": "#B3001B",
-        mango: "#70A288",
       },
     },
   },

@@ -50,9 +50,9 @@ export default function Question() {
   if (error) return <div>Error...</div>;
 
   return (
-    <div className="w-full h-screen flex flex-col">
+    <>
       {userExist ? (
-        <>
+        <div className="w-full h-screen flex flex-col justify-between bg-gray-100">
           <ScoreBoard />
           <GameBoard
             data={data}
@@ -65,8 +65,8 @@ export default function Question() {
             isAfterPick={isAfterPick}
             isCorrectAnswer={isCorrectAnswer}
           />
-        </>
+        </div>
       ) : null}
-    </div>
+    </>
   );
 }
