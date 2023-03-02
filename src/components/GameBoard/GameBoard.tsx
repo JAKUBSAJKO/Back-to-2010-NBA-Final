@@ -73,7 +73,7 @@ export function GameBoard({
           ""
         )}
       </div>
-      <div className="w-[512px] bg-green-500 flex flex-col justify-center items-center gap-4">
+      <div className="w-[512px] flex flex-col justify-center items-center gap-4">
         <h1>{data?.allQuestions[0].title}</h1>
         <p className="text-center">{data?.allQuestions[0].question}</p>
         <div className="grid grid-cols-2 gap-4">
