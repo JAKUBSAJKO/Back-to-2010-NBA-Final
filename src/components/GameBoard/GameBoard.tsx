@@ -66,7 +66,7 @@ export function GameBoard({
 
   return (
     <div className="w-full h-[calc(100vh-160px)] flex justify-center items-center">
-      <div className="bg-blue-500">
+      <div className="border-2">
         {data?.allQuestions[0].image !== null ? (
           <img src={data?.allQuestions[0].image.url || ""} alt="" />
         ) : (
@@ -82,8 +82,10 @@ export function GameBoard({
               <button
                 key={answer}
                 onClick={() => setUserChoice(answer)}
-                className={`w-48 py-2 border-2 border-purple-500 ${
-                  userChoice === answer ? "bg-purple-500 text-yellow-300" : ""
+                className={`w-48 py-2 border-2 border-lakers-purple ${
+                  userChoice === answer
+                    ? "bg-lakers-purple text-lakers-yellow"
+                    : ""
                 }`}
               >
                 {answer}
@@ -111,7 +113,7 @@ export function GameBoard({
           </button>
         )}
       </div>
-      <div className="bg-yellow-500">
+      <div className="border-2">
         {data?.allQuestions[0].image !== null ? (
           <img src={data?.allQuestions[0].image.url || ""} alt="" />
         ) : (

@@ -43,25 +43,27 @@ export const UserForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="max-w-xl flex flex-col justify-center items-center gap-4"
+      className="max-w-xl flex flex-col justify-center items-center gap-2"
     >
       <input
         type="text"
         placeholder="Podaj imię..."
-        className="w-64 px-4 py-2 border-2 border-purple-500 rounded-md text-sm"
+        className="w-64 px-4 py-2 border-2 border-lakers-purple rounded-md text-sm"
         {...register("first")}
       />
+      <p className="text-xs text-error-form self-start pl-4 my-1">
+        {errors.first?.message}
+      </p>
       <input
         type="text"
         placeholder="Podaj nazwisko..."
-        className="w-64 px-4 py-2 border-2 border-purple-500 rounded-md text-sm"
+        className="w-64 px-4 py-2 border-2 border-lakers-purple rounded-md text-sm"
         {...register("last")}
       />
-      <div>
-        <p>{errors.first?.message}</p>
-        <p>{errors.last?.message}</p>
-      </div>
-      <button type="submit" className="btn-outline mt-1">
+      <p className="text-xs text-error-form self-start pl-4 my-1">
+        {errors.last?.message}
+      </p>
+      <button type="submit" className="btn-outline mt-4">
         Dalej
       </button>
     </form>

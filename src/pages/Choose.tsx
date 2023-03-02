@@ -33,16 +33,20 @@ export default function Choose() {
           <div className="flex gap-8">
             <button
               onClick={() => dispatch(setQuestionDifficulty(2))}
-              className={`border-4 border-purple-500 px-8 py-2 ${
-                questionDifficulty === 2 ? "bg-purple-500 text-yellow-300" : ""
+              className={`border-4 border-lakers-purple px-8 py-2 ${
+                questionDifficulty === 2
+                  ? "bg-lakers-purple text-lakers-yellow"
+                  : ""
               }`}
             >
               2 punkty
             </button>
             <button
               onClick={() => dispatch(setQuestionDifficulty(3))}
-              className={`border-4 border-purple-500 px-8 py-2 ${
-                questionDifficulty === 3 ? "bg-purple-500 text-yellow-300" : ""
+              className={`border-4 border-lakers-purple px-8 py-2 ${
+                questionDifficulty === 3
+                  ? "bg-lakers-purple text-lakers-yellow"
+                  : ""
               }`}
             >
               3 punkty
@@ -52,9 +56,11 @@ export default function Choose() {
             to={
               questionDifficulty === 2
                 ? `${routes.easy}${currentQuestion}`
-                : `${routes.easy}${currentQuestion}`
+                : `${routes.hard}${currentQuestion}`
             }
-            className="btn-outline"
+            className={
+              questionDifficulty !== 0 ? "visible btn-outline" : "invisible"
+            }
           >
             Wybierz
           </Link>
