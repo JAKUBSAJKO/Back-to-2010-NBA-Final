@@ -49,7 +49,7 @@ export default function Finish() {
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
       {userExist ? (
         <>
-          <p className="max-w-xl border-2 border-purple-500 rounded-md p-8">
+          <p className="max-w-2xl border-2 border-lakers-purple rounded-md p-8">
             {userPoints > 17 ? win : userPoints === 16 ? draw : failure}
           </p>
           <Link

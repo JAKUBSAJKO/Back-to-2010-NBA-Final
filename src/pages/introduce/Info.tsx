@@ -5,7 +5,7 @@ import { routes } from "../../routes/routes";
 export default function Info() {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
-      <p className="max-w-xl border-2 border-purple-500 rounded-md p-8">
+      <p className="max-w-3xl border-2 border-lakers-purple rounded-md p-8">
         Cofnijmy się do roku 2010. 17. dzień czerwca, godzina 21:00, jesteśmy w
         hali Staples Center, Los Angeles, Kalifornia. Finał pomiędzy Los Angeles
         Lakers a Boston Celtics największymi drużynami tej ligi w całej
