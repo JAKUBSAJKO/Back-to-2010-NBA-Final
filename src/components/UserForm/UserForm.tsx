@@ -48,19 +48,19 @@ export const UserForm = () => {
       <input
         type="text"
         placeholder="Podaj imię..."
-        className="w-64 px-4 py-2 border-2 border-lakers-purple rounded-md text-sm"
+        className="w-64 px-4 py-2 border-2 border-lakers-purple rounded-md text-sm 2xl:scale-110"
         {...register("first")}
       />
-      <p className="text-xs text-error-form self-start pl-4 my-1">
+      <p className="text-xs text-error-form self-start pl-4 my-1 2xl:text-sm 2xl:pl-1">
         {errors.first?.message}
       </p>
       <input
         type="text"
         placeholder="Podaj nazwisko..."
-        className="w-64 px-4 py-2 border-2 border-lakers-purple rounded-md text-sm"
+        className="w-64 px-4 py-2 border-2 border-lakers-purple rounded-md text-sm 2xl:scale-110"
         {...register("last")}
       />
-      <p className="text-xs text-error-form self-start pl-4 my-1">
+      <p className="text-xs text-error-form self-start pl-4 my-1 2xl:text-sm 2xl:pl-1">
         {errors.last?.message}
       </p>
       <button type="submit" className="btn-outline mt-4">
