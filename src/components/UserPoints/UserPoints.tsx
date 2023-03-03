@@ -7,8 +7,8 @@ export const UserPoints = () => {
   );
   return (
     <div className="flex flex-col justify-center items-center">
-      <p className="text-xs text-center">Zdobyte punkty</p>
-      <p className="font-semibold">{userPoints}</p>
+      <p className="text-xs text-center 2xl:text-lg">Zdobyte punkty</p>
+      <p className="font-semibold 2xl:text-xl">{userPoints}</p>
     </div>
   );
 };
