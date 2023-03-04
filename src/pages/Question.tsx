@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
@@ -8,10 +8,8 @@ import { GameBoard } from "../components/GameBoard/GameBoard";
 import { ScoreBoard } from "../components/ScoreBoard/ScoreBoard";
 import { Spinner } from "../components/Spinner/Spinner";
 import { useQuestion } from "../hooks/useQuestion";
-import { routes } from "../routes/routes";
 
 export default function Question() {
-  const navigate = useNavigate();
   const [isAfterPick, setIsAfterPick] = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
   const { slug } = useParams();
@@ -22,16 +20,7 @@ export default function Question() {
     (state: RootState) => state.userExistToken.value
   );
 
-  const currentQuestion = useAppSelector(
-    (state: RootState) => state.currentQuestion.value
-  );
-
-  if (currentQuestion === 10) {
-    if (slug?.slice(-2) !== currentQuestion.toString()) {
-      navigate(routes.choose);
-      alert("Nie możesz ręcznie wpisywać ścieżki do pytania!");
-    }
-  } else if (loading) return <Spinner />;
+  if (loading) return <Spinner />;
   if (error) return <div>Error...</div>;
 
   return userExist ? (
