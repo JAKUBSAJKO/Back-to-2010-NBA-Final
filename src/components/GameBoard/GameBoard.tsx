@@ -64,25 +64,43 @@ export function GameBoard({
     }
   };
 
+  console.log(window.innerHeight < 515 ? "true" : "flase", "<--");
+
   return (
-    <div className="w-full h-[calc(100vh-160px)] flex justify-center items-center">
-      <div className="border-2">
+    <div
+      className={`w-full min-h-[calc(100vh-76px)] flex flex-col justify-center items-center lg:flex-row lg:md:min-h-[calc(100vh-144px)] 2xl:min-h-[calc(100vh-216px)] xl:gap-4 2xl:gap-8 ${
+        window.innerHeight < 768 ? "sm:my-8 lg:my-0" : ""
+      }`}
+    >
+      <div
+        className={`${
+          data?.allQuestions[0].image !== null
+            ? "mt-8 border-2 p-4 sm:mt-0 sm:mb-8 lg:mb-0"
+            : ""
+        }`}
+      >
         {data?.allQuestions[0].image !== null ? (
-          <img src={data?.allQuestions[0].image.url || ""} alt="" />
+          <img
+            src={data?.allQuestions[0].image.url || ""}
+            alt=""
+            className="w-40 lg:w-52 2xl:w-64"
+          />
         ) : (
           ""
         )}
       </div>
-      <div className="w-[512px] flex flex-col justify-center items-center gap-4">
-        <h1>{data?.allQuestions[0].title}</h1>
-        <p className="text-center">{data?.allQuestions[0].question}</p>
-        <div className="grid grid-cols-2 gap-4">
+      <div className="my-8 flex flex-col justify-center items-center gap-4 sm:w-[512px] sm:my-0 2xl:w-[768px] 2xl:gap-8">
+        <h1 className="2xl:text-2xl">{data?.allQuestions[0].title}</h1>
+        <p className="text-center px-4 sm:px-0 2xl:text-2xl">
+          {data?.allQuestions[0].question}
+        </p>
+        <div className="my-4 flex flex-col gap-4 lg:my-0 sm:grid sm:grid-cols-2 sm:gap-4 2xl:gap-y-8 2xl:gap-x-20">
           {data?.allQuestions[0].answers.map((answer: string) => {
             return (
               <button
                 key={answer}
                 onClick={() => setUserChoice(answer)}
-                className={`w-48 py-2 border-2 border-lakers-purple ${
+                className={`w-48 py-2 border-2 border-lakers-purple 2xl:scale-125 2xl:text-xl 2xl:w-56 ${
                   userChoice === answer
                     ? "bg-lakers-purple text-lakers-yellow"
                     : ""
@@ -113,9 +131,13 @@ export function GameBoard({
           </button>
         )}
       </div>
-      <div className="border-2">
+      <div className="hidden lg:block lg:border-2 lg:p-4">
         {data?.allQuestions[0].image !== null ? (
-          <img src={data?.allQuestions[0].image.url || ""} alt="" />
+          <img
+            src={data?.allQuestions[0].image.url || ""}
+            alt=""
+            className="lg:w-52 2xl:w-64"
+          />
         ) : (
           ""
         )}
