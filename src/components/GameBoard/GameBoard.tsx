@@ -120,6 +120,7 @@ export function GameBoard({
                     ? "bg-lakers-purple text-lakers-yellow"
                     : ""
                 }`}
+                disabled={isAfterPick ? true : false}
               >
                 {answer}
               </button>
