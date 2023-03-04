@@ -1,19 +1,13 @@
 import { Link } from "react-router-dom";
 
+import { texts } from "../../constants/static-text";
 import { routes } from "../../routes/routes";
 
 export default function Info() {
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center gap-4">
-      <p className="max-w-3xl border-2 border-lakers-purple rounded-md p-8">
-        Cofnijmy się do roku 2010. 17. dzień czerwca, godzina 21:00, jesteśmy w
-        hali Staples Center, Los Angeles, Kalifornia. Finał pomiędzy Los Angeles
-        Lakers a Boston Celtics największymi drużynami tej ligi w całej
-        historii. Stan finału 3-3, więc zaraz odbędzie się decytujące starcie o
-        puchar Larry'ego O'Briena. Jesteś rezerwowym drużyny z Los Angeles. Na
-        rozgrzewce twój kolega z zespółu Metta World Peace doznaje kontuzji. Do
-        pierwszej piątki trener wybiera Ciebie. Twoim zadaniem jest wejść w buty
-        Metta World Peace, który zdobył wtedy 20 punktów.
+    <div className="w-full min-h-screen p-8 flex flex-col justify-center items-center gap-8 md:gap-4 2xl:gap-8">
+      <p className="text-base md:max-w-3xl md:border-2 md:border-lakers-purple md:rounded-md md:p-8 2xl:max-w-5xl 2xl:text-xl">
+        {texts.startInformation}
       </p>
       <Link to={routes.user} className="btn-outline">
         Dalej

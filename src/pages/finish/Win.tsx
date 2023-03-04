@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
+import { texts } from "../../constants/static-text";
 import { removeUserExistToken } from "../../features/userExistSlice";
 import { routes } from "../../routes/routes";
 
@@ -26,23 +27,20 @@ export default function Win() {
     }
   }, []);
 
-  return (
-    <div className="w-full h-screen bg-win bg-center flex flex-col justify-center items-center">
-      {userExist ? (
-        <>
-          <h1 className="text-lg font-bold italic text-white">Gratulację!</h1>
-          <p className="max-w-lg font-bold text-center italic text-white">
-            Udało ci się odratować historię. Mam nadzieję, że dobrze się
-            bawiłaś/eś rozwiązując quiz.
-          </p>
-          <button
-            className="border-2 border-white rounded-md mt-4 text-white text-sm px-4 py-2 transition-all hover:bg-white hover:text-black"
-            onClick={endGame}
-          >
-            Koniec
-          </button>
-        </>
-      ) : null}
+  return userExist ? (
+    <div className="w-full h-screen bg-win bg-center bg-no-repeat bg-foto-bg flex flex-col justify-center items-center gap-4">
+      <h1 className="text-lg font-bold italic text-white 2xl:text-2xl">
+        Gratulację!
+      </h1>
+      <p className="max-w-lg text-sm font-bold text-center italic text-white px-8 md:text-base 2xl:text-2xl 2xl:max-w-2xl">
+        {texts.win}
+      </p>
+      <button
+        className="border-2 border-white rounded-md mt-4 text-white text-sm px-4 py-2 transition-all hover:bg-white hover:text-black 2xl:scale-125"
+        onClick={endGame}
+      >
+        Koniec
+      </button>
     </div>
-  );
+  ) : null;
 }

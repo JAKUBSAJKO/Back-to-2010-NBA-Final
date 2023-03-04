@@ -30,5 +30,5 @@
 }
 
 .btn-outline {
-  @apply border-2 border-lakers-purple px-8 py-2 rounded-md transition-all hover:bg-lakers-purple text-sm font-medium hover:text-lakers-yellow;
+  @apply border-2 border-lakers-purple px-8 py-2 rounded-md transition-all md:hover:bg-lakers-purple text-sm font-medium md:hover:text-lakers-yellow 2xl:text-lg;
 }
