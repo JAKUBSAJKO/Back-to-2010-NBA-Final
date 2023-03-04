@@ -39,10 +39,10 @@ export default function Finish() {
   return userExist ? (
     <div className="w-full h-screen p-8 flex flex-col justify-center items-center gap-4 2xl:gap-8">
       <p className="max-w-2xl md:border-2 md:border-lakers-purple md:rounded-md md:p-8 xl:max-w-3xl 2xl:max-w-4xl 2xl:text-xl">
-        {userPoints > 17 ? win : userPoints === 16 ? draw : failure}
+        {userPoints > 16 ? win : userPoints === 16 ? draw : failure}
       </p>
       <Link
-        to={userPoints > 17 ? routes.win : routes.failure}
+        to={userPoints > 16 ? routes.win : routes.failure}
         className="btn-outline"
         onClick={clearStates}
       >
