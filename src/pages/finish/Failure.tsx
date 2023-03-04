@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -19,13 +18,6 @@ export default function Failure() {
     dispatch(removeUserExistToken());
     navigate(routes.root);
   };
-
-  useEffect(() => {
-    if (!userExist) {
-      navigate(routes.user);
-      alert("Musisz podać imię i nazwisko zanim dojdzie do rozgrywki");
-    }
-  }, []);
 
   return (
     <div className="w-full h-screen bg-failure bg-top bg-no-repeat bg-foto-bg flex flex-col justify-center items-center gap-4">

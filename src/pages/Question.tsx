@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useAppSelector } from "../app/hooks";
@@ -25,21 +25,6 @@ export default function Question() {
   const currentQuestion = useAppSelector(
     (state: RootState) => state.currentQuestion.value
   );
-
-  useEffect(() => {
-    if (!userExist) {
-      navigate(routes.user);
-      alert("Musisz podać imię i nazwisko zanim dojdzie do rozgrywki");
-    } else if (currentQuestion === 10) {
-      if (slug?.slice(-2) !== currentQuestion.toString()) {
-        navigate(routes.choose);
-        alert("Nie możesz ręcznie wpisywać ścieżki do pytania!");
-      }
-    } else if (slug?.slice(-1) !== currentQuestion.toString()) {
-      navigate(routes.choose);
-      alert("Nie możesz ręcznie wpisywać ścieżki do pytania!");
-    }
-  }, []);
 
   if (currentQuestion === 10) {
     if (slug?.slice(-2) !== currentQuestion.toString()) {

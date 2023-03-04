@@ -64,8 +64,6 @@ export function GameBoard({
     }
   };
 
-  console.log(window.innerHeight < 515 ? "true" : "flase", "<--");
-
   return (
     <div
       className={`w-full min-h-[calc(100vh-76px)] flex flex-col justify-center items-center lg:flex-row lg:md:min-h-[calc(100vh-144px)] 2xl:min-h-[calc(100vh-216px)] xl:gap-4 2xl:gap-8 ${
@@ -131,7 +129,13 @@ export function GameBoard({
           </button>
         )}
       </div>
-      <div className="hidden lg:block lg:border-2 lg:p-4">
+      <div
+        className={`${
+          data?.allQuestions[0].image !== null
+            ? "hidden lg:block mt-8 border-2 p-4 sm:mt-0 sm:mb-8 lg:mb-0"
+            : ""
+        }`}
+      >
         {data?.allQuestions[0].image !== null ? (
           <img
             src={data?.allQuestions[0].image.url || ""}
