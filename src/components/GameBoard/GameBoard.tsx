@@ -129,7 +129,13 @@ export function GameBoard({
           </button>
         )}
       </div>
-      <div className="hidden lg:block lg:border-2 lg:p-4">
+      <div
+        className={`${
+          data?.allQuestions[0].image !== null
+            ? "hidden lg:block mt-8 border-2 p-4 sm:mt-0 sm:mb-8 lg:mb-0"
+            : ""
+        }`}
+      >
         {data?.allQuestions[0].image !== null ? (
           <img
             src={data?.allQuestions[0].image.url || ""}
