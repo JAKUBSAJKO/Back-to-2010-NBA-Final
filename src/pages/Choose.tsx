@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
@@ -7,7 +6,6 @@ import { setQuestionDifficulty } from "../features/chooseDifficultySlice";
 import { routes } from "../routes/routes";
 
 export default function Choose() {
-  const navigate = useNavigate();
   const questionDifficulty = useAppSelector(
     (state: RootState) => state.chooseDifficulty.value
   );
@@ -18,13 +16,6 @@ export default function Choose() {
     (state: RootState) => state.userExistToken.value
   );
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (!userExist) {
-      navigate(routes.user);
-      alert("Musisz podać imię i nazwisko zanim dojdzie do rozgrywki");
-    }
-  }, []);
 
   return userExist ? (
     <div className="w-full h-screen flex flex-col justify-center items-center gap-12 sm:gap-8 2xl:gap-12">

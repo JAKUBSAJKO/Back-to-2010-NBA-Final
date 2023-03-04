@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { RootState } from "../app/store";
@@ -10,7 +9,6 @@ import { removeUser } from "../features/userSlice";
 import { routes } from "../routes/routes";
 
 export default function Finish() {
-  const navigate = useNavigate();
   const userPoints = useAppSelector(
     (state: RootState) => state.userPoints.value
   );
@@ -37,13 +35,6 @@ export default function Finish() {
     dispatch(clearLakersPoints());
     dispatch(removeUser());
   };
-
-  useEffect(() => {
-    if (!userExist) {
-      navigate(routes.user);
-      alert("Musisz podać imię i nazwisko zanim dojdzie do rozgrywki");
-    }
-  }, []);
 
   return userExist ? (
     <div className="w-full h-screen p-8 flex flex-col justify-center items-center gap-4 2xl:gap-8">
