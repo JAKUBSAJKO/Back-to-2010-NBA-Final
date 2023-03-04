@@ -64,8 +64,6 @@ export function GameBoard({
     }
   };
 
-  console.log(window.innerHeight < 515 ? "true" : "flase", "<--");
-
   return (
     <div
       className={`w-full min-h-[calc(100vh-76px)] flex flex-col justify-center items-center lg:flex-row lg:md:min-h-[calc(100vh-144px)] 2xl:min-h-[calc(100vh-216px)] xl:gap-4 2xl:gap-8 ${
