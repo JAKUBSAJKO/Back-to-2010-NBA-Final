@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useSound from "use-sound";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
@@ -12,6 +13,10 @@ import { incrementLakersPoints } from "../../features/lakersPoints";
 import { incrementUserPoints } from "../../features/userPointsSlice";
 import { IResponse } from "../../hooks/useQuestion";
 import { routes } from "../../routes/routes";
+import Swish from "../../assets/sounds/basketball-swish.mp3";
+import MissingShotHit from "../../assets/sounds/basketball-missing-shot-hit.mp3";
+import BounceBall from "../../assets/sounds/basketball-bounce.mp3";
+import BuzzerBeater from "../../assets/sounds/basketball-buzzer-beater.mp3";
 
 interface Props {
   data: IResponse | undefined;
@@ -28,6 +33,11 @@ export function GameBoard({
 }: Props) {
   const [userChoice, setUserChoice] = useState("");
 
+  const [swishSound] = useSound(Swish);
+  const [missingShotHitSound] = useSound(MissingShotHit);
+  const [bounceSound] = useSound(BounceBall);
+  const [buzzerBeaterSound] = useSound(BuzzerBeater);
+
   const navigate = useNavigate();
 
   const chooseDifficulty = useAppSelector(
@@ -43,6 +53,7 @@ export function GameBoard({
     setIsAfterPick((prev) => !prev);
     if (userChoice === data?.allQuestions[0].correctanswer) {
       setIsCorrectAnswer((prev) => !prev);
+      swishSound();
       if (chooseDifficulty === 2) {
         dispatch(incrementUserPoints(chooseDifficulty));
         dispatch(incrementLakersPoints(chooseDifficulty));
@@ -50,6 +61,8 @@ export function GameBoard({
         dispatch(incrementUserPoints(chooseDifficulty));
         dispatch(incrementLakersPoints(chooseDifficulty));
       }
+    } else {
+      missingShotHitSound();
     }
   };
 
@@ -57,6 +70,7 @@ export function GameBoard({
     dispatch(setQuestionDifficulty(0));
     if (currentQuestion === 10) {
       clearCurrentQuestion();
+      buzzerBeaterSound();
       navigate(routes.finish);
     } else {
       dispatch(incrementCurrentQuestion());
@@ -97,7 +111,10 @@ export function GameBoard({
             return (
               <button
                 key={answer}
-                onClick={() => setUserChoice(answer)}
+                onClick={() => {
+                  setUserChoice(answer);
+                  bounceSound();
+                }}
                 className={`w-48 py-2 border-2 border-lakers-purple 2xl:scale-125 2xl:text-xl 2xl:w-56 ${
                   userChoice === answer
                     ? "bg-lakers-purple text-lakers-yellow"
