@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Back to 2010 NBA Final
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Link to the website -> https://bt2010nf-jakubsajko.vercel.app
 
-## Available Scripts
+My mind is a application where you can create account and share your minds with people.
 
-In the project directory, you can run:
+The application is only a front-end project, so all the data you create will be stored in local storage in your browser.
 
-### `npm start`
+Why I did this app?
+I wanted to do something with react-hook-form to know this library.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technology
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React version: 18.2.0
+- Typescript version: 4.9.4
+- Tailwind version: 3.2.4
+- Reduxjs/toolkit version: 1.9.1
+- DatoCMS
 
-### `npm test`
+## Installed packages
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React-router-dom version: 6.5.0
+- React-hook-form version: 7.41.1
+- Yup version: 0.32.11
+- @hookform/resolvers version: 2.9.10
+- React-icons version: 4.7.1
+- Graphql-hooks version: 6.0.5
+- Use-sound version: 4.0.1
 
-### `npm run build`
+## Deploy
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The application delpoy on Vercel
