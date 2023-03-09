@@ -2,12 +2,7 @@
 
 Link to the website -> https://bt2010nf-jakubsajko.vercel.app
 
-My mind is a application where you can create account and share your minds with people.
-
-The application is only a front-end project, so all the data you create will be stored in local storage in your browser.
-
-Why I did this app?
-I wanted to do something with react-hook-form to know this library.
+Back to 2010 NBA Final is a quiz game. You can check your knowledge about NBA, protect history NBA Final 2010 and help Los Angeles Lakers to beat Boston Celtic.
 
 ## Technology
 
